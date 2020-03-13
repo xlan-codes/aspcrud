@@ -1,0 +1,45 @@
+﻿@model CRUDOperations.Models.UsersViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User Details</legend>
+    <div class="display-label">
+        <b> @Html.DisplayNameFor(model => model.FirstName) </b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+        <b> @Html.DisplayNameFor(model => model.Birthdate) </b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Birthplace)
+    </div>    
+    
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>  
+    
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>    
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Employed)
+    </div>    
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MartialStatus)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

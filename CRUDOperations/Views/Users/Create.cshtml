@@ -1,0 +1,102 @@
+﻿@model CRUDOperations.Models.UsersViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>Create User</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.FirstName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LastName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Birthdate)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Birthdate, new { @class = "datetime", type = "date"})
+        @Html.ValidationMessageFor(model => model.Birthdate)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Birthplace)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Birthplace)
+        @Html.ValidationMessageFor(model => model.Birthplace)
+    </div>
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Phone)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Phone)
+        @Html.ValidationMessageFor(model => model.Phone)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Gender)
+    </div>
+    <div class="editor-field">
+        @*@Html.EditorFor(model => model.Gender)
+        @Html.ValidationMessageFor(model => model.Gender)*@
+        Male
+        @Html.RadioButtonFor(model => model.Gender, "M")
+        Female
+        @Html.RadioButtonFor(model => model.Gender, "F")
+    </div>
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Employed)
+    </div>
+    <div class="editor-field">
+        @Html.CheckBox("Employed", false)
+        @Html.ValidationMessageFor(model => model.Employed)
+    </div>
+
+
+    <div class="editor-label">
+        @*@Html.LabelFor(model => model.MartialStatus)*@
+
+        @Html.DropDownList("MartialStatus", new List<SelectListItem>
+        {
+            new SelectListItem{ Text="I Martuar", Value = "Martuar" },
+            new SelectListItem{ Text="Beqar", Value = "Beqar" },
+            new SelectListItem{ Text="I Ndare", Value = "I Ndare" },
+            new SelectListItem{ Text="Ve", Value = "Ve" },
+        })
+    </div>
+
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

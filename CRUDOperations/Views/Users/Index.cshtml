@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CRUDOperations.Models.UsersViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form asp-controller="Users" asp-action="Search" method="get">
+    <p>
+        Search Person: <input type="text" name="searchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Birthplace)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Employed)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.MartialStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MartialStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.UserId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.UserId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.UserId  })
+        </td>
+    </tr>
+}
+
+</table>
